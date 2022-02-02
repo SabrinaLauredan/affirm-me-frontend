@@ -5,6 +5,7 @@ import About from './Pages/About';
 import ErrorPage from './Pages/ErrorPage';
 
 function App() {
+  const backendURL = process.env["REACT_APP_BACKEND_URL"]
 	return (
 	<Router>
 		<nav> 
