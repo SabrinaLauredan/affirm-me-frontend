@@ -1,11 +1,34 @@
 import './App.css';
+import axios from "axios";
+
 import {BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Home from './Pages/Home';
 import About from './Pages/About';
 import ErrorPage from './Pages/ErrorPage';
 
+
 function App() {
   const backendURL = process.env["REACT_APP_BACKEND_URL"]
+
+  const createNewGoal = (response: any) => {
+    axios
+      .post(`${backendURL}/goals`, {
+        title: response.title,
+        description: response.description,
+        createdAt: response.createdAt
+      })
+      .then((response) => {
+        console.log(
+          `Success adding goal: ${JSON.stringify(response.data)}`
+        );
+        // fetchGoalsForList();
+      })
+      .catch((error) => {
+        console.log(`Error adding new goal: ${error}`);
+      });
+  };
+
+
 	return (
 	<Router>
 		<nav> 
@@ -21,9 +44,10 @@ function App() {
 			<Route path="/about" element={<About />} />
 			<Route path="/*" element={<ErrorPage />} />
       {/* must be the last route, "/*" says every /example, besides the one defined above */}
-		</Routes>
-		<div> footer </div> 
+		</Routes>    
+
 	</Router>
+
 	);
 
 }
