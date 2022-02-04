@@ -1,58 +1,172 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
+import GoalDataService from "../services/GoalService";
+import IGoalData from "../types/Goal";
 import moment from "moment";
 
 
-
-// goal fields == 'title', 'description'
-//
-
-
-const NewGoalForm = ({ createGoal }) => {
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [canSubmit, setCanSubmit] = useState(false);
-    const createdAt = moment().format("DD-MM-YYYY hh:mm:ss")
-
-    const checkValidInput = (response: any) => {
-        if (response === "" || response.length > 40) {
-            setCanSubmit(false);
-        } else {
-            setCanSubmit(true);
-        }
+const NewGoalForm = () => {
+    const initialGoalState = {
+        id: null,
+        title: "",
+        description: "",
+        createdAt: ""
     };
-    
+    const submitDate = moment().format("DD-MM-YYYY hh:mm:ss")
+
+    const [goal, setGoal] = useState<IGoalData>(initialGoalState);
+    const [submitted, setSubmitted] = useState<boolean>(false);
+
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setGoal({...goal, [name]: value });
+    };
+
+    const saveGoal = () => {
+        let data = {
+            title: goal.title,
+            description: goal.description,
+            createdAt: submitDate
+        };
+
+        GoalDataService.create(data)
+            .then((response: any) => {
+                setGoal({
+                    id: response.data.id,
+                    title: response.data.title,
+                    description: response.data.description,
+                    createdAt: response.data.createdAt
+                });
+                setSubmitted(true);
+                console.log(response.data);
+            })
+            .catch((e: Error) => {
+                console.log(e);
+            });
+    };
+
+    const newGoal = () => {
+        setGoal(initialGoalState);
+        setSubmitted(false);
+    };
+
     return (
-        <form>
-            <input 
-                value={title} 
-                placeholder="title" 
-                onInput={(e) => { 
-                    let target = e.target as HTMLInputElement;
-                    setTitle(target.value);
-                    checkValidInput(target.value)
-                }}
-            />
-            <input 
-                value={description} 
-                placeholder="description" 
-                onInput={(e) => { 
-                    let target = e.target as HTMLInputElement;
-                    setDescription(target.value);
-                    checkValidInput(target.value)
-                }}
-            />
-            <button 
-                onClick={() => {
-                    createGoal(`"title":${title}, "description":${description}, "createdAt":${createdAt})`);
-                }}
-                disabled={!canSubmit}
-            >
-                submit
-            </button>
-        </form>
+        <div className="submit-form">
+            {submitted ? (
+                <div>
+                    <h4>successful submission</h4>
+                    <button className="btn btn-success" onClick={newGoal}>
+                        add
+                    </button>
+                </div> 
+            ) : (
+                <div>
+                    <div className="form-group">
+                        <label htmlFor="title">Title</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="title"
+                            required
+                            value={goal.title}
+                            onChange={handleInputChange}
+                            name="title"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="description">Description</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="description"
+                            // required
+                            value={goal.description}
+                            onChange={handleInputChange}
+                            name="description"
+                        />
+                    </div>
+                    <button onClick={saveGoal} className="btn btn-success">
+                        Submit
+                    </button>
+                </div>
+            )}
+        </div>
     );
 };
 
-
-
 export default NewGoalForm;
+
+// interface IProps {
+//     addGoal: (arg: {title: string; description?: string | undefined; createdAt?: string | undefined}) => void
+// }
+
+// const NewGoalForm = (addGoal: IProps["addGoal"]) => {
+//     const submitDate = moment().format("DD-MM-YYYY hh:mm:ss")
+
+//     const [requestBody, setRequestBody] = useState({
+//         title: "",
+//         description: "",
+//         createdAt: submitDate
+//     })
+//     // https://www.bezkoder.com/react-typescript-api-call/
+//     const [submitted, setSubmitted] = useState<boolean>(false);
+
+//     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+//         setRequestBody({
+//             ...requestBody,
+//             [`${e.target.name}`]: `${e.target.value}`,
+//         })
+//     }
+
+//     const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
+//         //prevents page from reloading
+//         e.preventDefault();
+
+//         if(!requestBody.title){
+//             return
+//         }
+//         //do something
+//         addGoal(requestBody);
+//         // setRequestBody({
+//         //     ...requestBody,
+//         //     createdAt: submitDate
+//         // });
+//     }
+//     // const handleClick = () => {
+//     //     if(
+//     //         !requestBody.title
+//     //     ) {
+//     //         return
+//     //     }
+//     //     // setInput({
+//     //     //     ...input,
+//     //     //     createdAt: submitDate
+//     //     // })
+//     //     addGoal(requestBody);
+//     // }
+
+//     return (
+//         <form onSubmit={submitForm}>
+//             <input
+//                 type="text"
+//                 placeholder="Title"
+//                 value={requestBody.title}
+//                 onChange={handleChange}
+//                 name="title"
+//             />
+//             <input
+//                 type="text"
+//                 placeholder="Description"
+//                 value={requestBody.description}
+//                 onChange={handleChange}
+//                 name="description"
+//             />
+//             <button
+//                 type="submit"
+//             >
+//                 submit
+//             </button>
+//         </form>
+//     )
+// }
+
+// export default NewGoalForm;
