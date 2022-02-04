@@ -55,7 +55,7 @@ const NewGoalForm = () => {
                 <div>
                     <h4>successful submission</h4>
                     <button className="btn btn-success" onClick={newGoal}>
-                        add
+                        add another goal
                     </button>
                 </div> 
             ) : (
