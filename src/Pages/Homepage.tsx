@@ -15,7 +15,9 @@ export function Homepage(){
 		<div>
             <h1> affirm.me (THIS IS THE HOME PAGE)</h1>
 			<h2>User's GOALS</h2>
-			< GoalList />
+			<li>Displays all Goals via GoalList Component below.
+			GoalList should comprise of GoalCards which each display one goal. </li>
+			< GoalList /> 
 			<nav>
 				{/* <ul>
 					{goalsDisplayed.map(({ id, title}: GoalCard) => (
