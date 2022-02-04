@@ -2,7 +2,6 @@ import * as React from 'react';
 // import './App.css';
 import { GoalList } from '../Components/GoalList';
 
-
 // import { Link } from 'react-router-dom'
 //  create helper function to get all goals! 
 // import { getGoals }  from "./api";
