@@ -50,8 +50,8 @@ function App() {
 			<Route path="/*" element={<ErrorPage />} />
 		</Routes>    
 
-    <NewGoalForm></NewGoalForm>
-    
+    {/* <NewGoalForm></NewGoalForm> */}
+
 	</Router>
 
 	);

@@ -1,9 +1,15 @@
 import React from "react";
+import NewGoalForm from "../components/NewGoalForm";
 
 // add snippet for setting up typescript component w basic text message
 
 const Home = () => {
-    return <div>THIS IS THE HOME PAGE</div>
+    return (
+    <div>
+        <NewGoalForm></NewGoalForm>
+    </div>
+
+    )
 }
 
 export default Home;
