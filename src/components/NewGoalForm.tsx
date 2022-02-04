@@ -60,6 +60,7 @@ const NewGoalForm = () => {
                 </div> 
             ) : (
                 <div>
+                    <h4>ADD A GOAL</h4>
                     <div className="form-group">
                         <label htmlFor="title">Title</label>
                         <input
