@@ -9,34 +9,6 @@ import NewGoalForm from './components/NewGoalForm';
 
 
 function App() {
-  // const backendURL = process.env["REACT_APP_BACKEND_URL"]
-
-  // interface Input {
-  //   data: {
-  //     title: string,
-  //     description?: string,
-  //     createdAt?: string
-  //   }
-  // }
-
-  // function createNewGoal(input: Input["data"]) {
-  //   axios
-  //     .post(`${backendURL}/goals`, {
-  //       title: input.title,
-  //       description: input.description,
-  //       createdAt: input.createdAt
-  //     })
-  //     .then((response) => {
-  //       console.log(
-  //         `Success adding goal: ${JSON.stringify(input)}`
-  //       );
-  //       // fetchGoalsForList();
-  //     })
-  //     .catch((error) => {
-  //       console.log(`Error adding new goal: ${error}`);
-  //     });
-  // };
-
 
 	return (
 	<Router>
@@ -48,6 +20,7 @@ function App() {
 			<Route path="/" element={<Home />} /> 
 			<Route path="/about" element={<About />} />
 			<Route path="/*" element={<ErrorPage />} />
+      <Route path="/goalform" element={<NewGoalForm/>}/>
 		</Routes>    
 
     {/* <NewGoalForm></NewGoalForm> */}

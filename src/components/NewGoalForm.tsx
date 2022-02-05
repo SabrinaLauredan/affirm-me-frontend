@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent } from "react";
 import GoalDataService from "../services/GoalService";
 import IGoalData from "../types/Goal";
 import moment from "moment";
+import { useNavigate } from "react-router-dom";
 
 
 const NewGoalForm = () => {
@@ -12,14 +13,20 @@ const NewGoalForm = () => {
         createdAt: ""
     };
     const submitDate = moment().format("DD-MM-YYYY hh:mm:ss")
+    const navigate = useNavigate();
 
     const [goal, setGoal] = useState<IGoalData>(initialGoalState);
-    const [submitted, setSubmitted] = useState<boolean>(false);
+    // const [submitted, setSubmitted] = useState<boolean>(false);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setGoal({...goal, [name]: value });
     };
+
+    const goBackHome = () => {
+        navigate('/');
+
+    }
 
     const saveGoal = () => {
         let data = {
@@ -36,65 +43,109 @@ const NewGoalForm = () => {
                     description: response.data.description,
                     createdAt: response.data.createdAt
                 });
-                setSubmitted(true);
+                // setSubmitted(true);
                 console.log(response.data);
+                goBackHome();
             })
             .catch((e: Error) => {
                 console.log(e);
             });
     };
 
-    const newGoal = () => {
-        setGoal(initialGoalState);
-        setSubmitted(false);
-    };
 
     return (
         <div className="submit-form">
-            {submitted ? (
-                <div>
-                    <h4>successful submission</h4>
-                    <button className="btn btn-success" onClick={newGoal}>
-                        add another goal
-                    </button>
-                </div> 
-            ) : (
-                <div>
-                    <h4>ADD A GOAL</h4>
-                    <div className="form-group">
-                        <label htmlFor="title">Title</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="title"
-                            required
-                            value={goal.title}
-                            onChange={handleInputChange}
-                            name="title"
-                        />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="description">Description</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="description"
-                            // required
-                            value={goal.description}
-                            onChange={handleInputChange}
-                            name="description"
-                        />
-                    </div>
-                    <button onClick={saveGoal} className="btn btn-success">
-                        Submit
-                    </button>
+            <div>
+                <h4>ADD A GOAL</h4>
+                <div className="form-group">
+                    <label htmlFor="title">Title</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="title"
+                        required
+                        value={goal.title}
+                        onChange={handleInputChange}
+                        name="title"
+                    />
                 </div>
-            )}
+                <div className="form-group">
+                    <label htmlFor="description">Description</label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="description"
+                        // required
+                        value={goal.description}
+                        onChange={handleInputChange}
+                        name="description"
+                    />
+                </div>
+                <button onClick={saveGoal} className="btn btn-success">
+                    Submit
+                </button>
+            </div>
         </div>
     );
 };
 
 export default NewGoalForm;
+
+//ORIGINAL WORKING CODE W SUBMISSION STATE
+
+// const newGoal = () => {
+//     setGoal(initialGoalState);
+//     setSubmitted(false);
+// };
+
+// return (
+//     <div className="submit-form">
+//         {submitted ? (
+//             <div>
+//                 <h4>successful submission</h4>
+//                 <button className="btn btn-success" onClick={newGoal}>
+//                     add another goal
+//                 </button>
+//             </div> 
+//         ) : (
+//             <div>
+//                 <h4>ADD A GOAL</h4>
+//                 <div className="form-group">
+//                     <label htmlFor="title">Title</label>
+//                     <input
+//                         type="text"
+//                         className="form-control"
+//                         id="title"
+//                         required
+//                         value={goal.title}
+//                         onChange={handleInputChange}
+//                         name="title"
+//                     />
+//                 </div>
+//                 <div className="form-group">
+//                     <label htmlFor="description">Description</label>
+//                     <input
+//                         type="text"
+//                         className="form-control"
+//                         id="description"
+//                         // required
+//                         value={goal.description}
+//                         onChange={handleInputChange}
+//                         name="description"
+//                     />
+//                 </div>
+//                 <button onClick={saveGoal} className="btn btn-success">
+//                     Submit
+//                 </button>
+//             </div>
+//         )}
+//     </div>
+// );
+
+
+
+
+
 
 // interface IProps {
 //     addGoal: (arg: {title: string; description?: string | undefined; createdAt?: string | undefined}) => void
