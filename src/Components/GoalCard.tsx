@@ -10,42 +10,42 @@ import { CardActionArea } from '@mui/material';
 // };
 
 
-// const GoalCard: React.FC<{goal:any, setGoalDetail:Function}> = ({goal, setGoalDetail}) => { // Aisha'd changes
-//     return (
-//         <Card sx={{ maxWidth: 500 }}> /
-//             <CardActionArea>
-//                 <CardContent onClick={() => {setGoalDetail(goal)}}>
-//                     <Typography gutterBottom variant="h5" component="div">
-//                         {goal.title}
-//                     </Typography>
-//                     <Typography variant="body2" color="text.secondary">
-//                         {goal.description}
-//                     </Typography>
-//                 </CardContent>
-//             </CardActionArea>
-//         </Card>
-//     );
-// }; 
-
-
-// export default GoalCard
-
-// Aisha's changes end
-
-
-export default function GoalCard() {
+const GoalCard: React.FC<{goal:any, setGoalDetail:Function}> = ({goal, setGoalDetail}) => { // Aisha'd changes
     return (
-        <Card sx={{ maxWidth: 500 }}>
+        <Card sx={{ maxWidth: 500 }}> /
             <CardActionArea>
-                <CardContent>
+                <CardContent onClick={() => {setGoalDetail(goal)}}>
                     <Typography gutterBottom variant="h5" component="div">
-                        Goal Title
+                        {goal.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Goal Description
+                        {goal.description}
                     </Typography>
                 </CardContent>
             </CardActionArea>
         </Card>
     );
 }; 
+
+
+export default GoalCard
+
+// Aisha's changes end
+
+
+// export default function GoalCard() {
+//     return (
+//         <Card sx={{ maxWidth: 500 }}>
+//             <CardActionArea>
+//                 <CardContent>
+//                     <Typography gutterBottom variant="h5" component="div">
+//                         Goal Title
+//                     </Typography>
+//                     <Typography variant="body2" color="text.secondary">
+//                         Goal Description
+//                     </Typography>
+//                 </CardContent>
+//             </CardActionArea>
+//         </Card>
+//     );
+// }; 
