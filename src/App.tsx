@@ -6,6 +6,7 @@ import Home from './Pages/Home';
 import About from './Pages/About';
 import ErrorPage from './Pages/ErrorPage';
 import NewGoalForm from './components/NewGoalForm';
+import { GoalsList } from './components/GoalListAisha';
 // import { GoalList } from './components/GoalList';
 // import Goal from './Pages/GoalView';
 
@@ -22,8 +23,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} /> 
         <Route path="/about" element={<About />} />
-        <Route path="/*" element={<ErrorPage />} />
+        <Route path="/goals" element={<GoalsList />} />
         <Route path="/goalform" element={<NewGoalForm/>}/>
+        <Route path="/*" element={<ErrorPage />} />
       </Routes>  
       {/* < GoalList />   */}
       {/* <NewGoalForm></NewGoalForm> */}
