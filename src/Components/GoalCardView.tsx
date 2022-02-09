@@ -40,5 +40,6 @@ const GoalCardView: React.FC<{goalDetail:any, setGoalDetail:Function}> = ({goalD
     //         <h1>{post.title}</h1>
     //         <p>{post.content}</p>
     //return "goal card view"
-}
-export default GoalCardView
+};
+
+export default GoalCardView;
