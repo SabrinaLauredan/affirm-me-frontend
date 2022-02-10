@@ -53,6 +53,3 @@ const Affirmation = (props: IProps) => {
 
 export default Affirmation;
 
-{/* <div className="message">
-    {message}
-</div>  */}
