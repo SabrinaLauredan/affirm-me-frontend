@@ -33,10 +33,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/about" element={<About />} />
+          <Route path="/affirmation" element={<AffirmationMessage />} />
           <Route path="/goals" element={<GoalsList />} />
           <Route path="/goalform" element={<NewGoalForm/>}/>
           <Route path="/*" element={<ErrorPage />} />
-          <Route path="/affirmation" element={<AffirmationMessage/>} />
         </Routes>  
       </Router>
     </div>
