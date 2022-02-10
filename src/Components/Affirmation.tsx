@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-
+import { useLocation } from "react-router-dom";
 //prop interface:
     //prop.response =  string ('yes' or 'no')
 
-const Affirmation = ({/*prop*/}) => {
+interface IProps {
+    response: any;
+}
+const Affirmation = (props: IProps) => {
 
     // set state to track 'affirmation type' ('yes' or 'no')
     const [type, setType] = useState(false)
@@ -32,9 +35,9 @@ const Affirmation = ({/*prop*/}) => {
     }
 
     // add a conditional that checks if prop.response == 'yes' and if it is sets Type to True 
-    // if (prop.response == 'yes') {
-    //     setType(true);
-    // }
+    if (props.response == 'yes') {
+        setType(true);
+    }
 
     //define a message that is a ternary that displays 'yes'[counter] or 'no'[counter]
     //messages based on the state of type
@@ -42,12 +45,14 @@ const Affirmation = ({/*prop*/}) => {
     incrementCounter();
 
     return (
-        <div>
-            <div className="message">
-                {message}
-            </div>
+        <div className="message">
+            {message}
         </div>
     );
 };
 
 export default Affirmation;
+
+{/* <div className="message">
+    {message}
+</div>  */}

@@ -1,11 +1,12 @@
-import './App.css';
-import "bootstrap/dist/css/bootstrap.min.css";
+// import './App.css';
+// import "bootstrap/dist/css/bootstrap.min.css";
 import {BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Home from './Pages/Home';
 import About from './Pages/About';
 import ErrorPage from './Pages/ErrorPage';
 import NewGoalForm from './components/NewGoalForm';
 import { GoalsList } from './components/GoalList';
+import AffirmationMessage from './components/AffirmationMessage';
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/goals" element={<GoalsList />} />
           <Route path="/goalform" element={<NewGoalForm/>}/>
           <Route path="/*" element={<ErrorPage />} />
+          <Route path="/affirmation" element={<AffirmationMessage/>} />
         </Routes>  
       </Router>
     </div>
