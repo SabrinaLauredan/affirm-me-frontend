@@ -28,7 +28,7 @@ const GoalCard: React.FC<{goal:any, setGoalDetail:Function}> = ({goal, setGoalDe
 }; 
 
 
-export default GoalCard
+export default GoalCard;
 
 // Aisha's changes end
 
