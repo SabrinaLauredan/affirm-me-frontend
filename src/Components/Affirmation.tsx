@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation  } from "react-router-dom";
+
 //prop interface:
     //prop.response =  string ('yes' or 'no')
 
@@ -9,9 +10,14 @@ interface IProps {
 const Affirmation = (props: IProps) => {
 
     // set state to track 'affirmation type' ('yes' or 'no')
-    const [type, setType] = useState(false);
-    //set Counter state to 0 
-    const [counter, setCounter] = useState(0);
+    const type = props.response
+
+    //define function to pick a random num between 0 - 2
+    const getRandomIndex = (num: number) => {
+        return Math.floor(Math.random() * (num)); 
+        //random num between 0 inclusive and num exclusive
+        //getRandomIndex(3) returns either 0, 1, or 2
+    }
 
     //define array of 'yes' messages
     const yesMessages = [
@@ -26,47 +32,31 @@ const Affirmation = (props: IProps) => {
         "I'm proud of you for trying!"
     ];
 
-    const incrementCounter = () => {
-        if (counter == 3) {
-            setCounter(0)
+    const randomIndex = getRandomIndex(yesMessages.length)
+
+    //if else conditional that checks if 'answer' is 'yes' or 'no' 
+    //and displays yesMessages[random] or noMessages[random] depending
+
+    const chooseMessage = () => {
+        if (props.response === 'yes') {
+            return yesMessages[randomIndex];
+        } else if (props.response === 'no') {
+            return noMessages[randomIndex];
         } else {
-            setCounter(counter + 1)
+            return 'error: response not read';
         }
-    };
+    }
 
-    // add a conditional that checks if prop.response == 'yes' and if it is sets Type to True 
-    useEffect(() => {
-        if (props.response == 'yes') {
-            setType(true);
-            incrementCounter();
-        } else {
-            incrementCounter();
-        }
-    }, []);
+    const message = chooseMessage();
 
-    //define a message that is a ternary that displays 'yes'[counter] or 'no'[counter]
-    //messages based on the state of type
-    // const message = type ? yesMessages[counter] : noMessages[counter];
-    
-    console.log(type)
-    // console.log(message);
-
-    // useEffect(() => {
-    //     incrementCounter();
-    // }, [type]);
-    
-    console.log(counter);
-    
+    console.log(randomIndex);
 
     return (
         <div className="message">
-            {type ? yesMessages[counter] : noMessages[counter]}
+            {message}
         </div>
     );
 };
 
 export default Affirmation;
 
-{/* <div className="message">
-    {message}
-</div>  */}

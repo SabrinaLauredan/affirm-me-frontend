@@ -16,7 +16,11 @@ export function GoalsList() {
             .catch((error) => {
                 console.log('ERROR:', error.response.data);
             });
+    
     }, []);
+
+    console.log(listedGoals);
+    
     return (
         <div>
             { goalDetail? <GoalCardView goalDetail={goalDetail} setGoalDetail={setGoalDetail} ></GoalCardView> : <div> 

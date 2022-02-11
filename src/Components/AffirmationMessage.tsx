@@ -6,15 +6,10 @@ import { useLocation } from "react-router-dom";
     //response to check-in data = string
 
 const AffirmationMessage = () => {
-
     const location = useLocation();
     const answer = location.state as any;
 
-    console.log(answer);
-
     const animation = ""
-
-
 
     return (
         <div>
