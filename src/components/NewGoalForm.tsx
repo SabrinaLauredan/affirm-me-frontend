@@ -6,10 +6,10 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 
 
 const NewGoalForm = () => {
-    let [searchParams, setSearchParams] = useSearchParams(); 
-    let editId = searchParams.get("id");
+    // let [searchParams, setSearchParams] = useSearchParams(); 
+    // let editId = searchParams.get("id");
     // if editID undefined, making goal, if found editing 
-    console.log(editId)
+    // console.log(editId)
     // console.log(useSearchParams())
     const initialGoalState = {
         id: null,
@@ -17,6 +17,7 @@ const NewGoalForm = () => {
         description: "",
         createdAt: ""
     };
+
     const submitDate = moment().format("DD-MM-YYYY hh:mm:ss")
     const navigate = useNavigate();
 
@@ -39,16 +40,19 @@ const NewGoalForm = () => {
             createdAt: submitDate
         };
 
-        const req = GoalDataService.update(editId,data)
+        // const req = GoalDataService.update(editId,data)
+            // req.then((response: any) => {
+        
         // conditional
         // also get current goals in edit form with state or get 
-            req.then((response: any) => {
-                setGoal({
-                    id: response.data.id,
-                    title: response.data.title,
-                    description: response.data.description,
-                    createdAt: response.data.createdAt
-                });
+            GoalDataService.create(data)
+                .then((response: any) => {
+                    setGoal({
+                        id: response.data.id,
+                        title: response.data.title,
+                        description: response.data.description,
+                        createdAt: response.data.createdAt
+                    });
                 // setSubmitted(true);
                 console.log(response.data);
                 goBackHome();

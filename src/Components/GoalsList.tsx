@@ -16,11 +16,15 @@ export function GoalsList() {
             .catch((error) => {
                 console.log('ERROR:', error.response.data);
             });
+    
     }, []);
+
+    console.log(listedGoals);
+    
     return (
         <div>
             { goalDetail? <GoalCardView goalDetail={goalDetail} setGoalDetail={setGoalDetail} ></GoalCardView> : <div> 
-                <h1>My Goals (GoalsList)</h1>
+                <h1>My Goals</h1>
                 {listedGoals.map((goal, index)=> {
                     return <GoalCard goal={goal} key={index} setGoalDetail={setGoalDetail} ></GoalCard>
                 })}
