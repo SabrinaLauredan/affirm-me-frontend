@@ -5,7 +5,7 @@ import Home from './Pages/Home';
 import About from './Pages/About';
 import ErrorPage from './Pages/ErrorPage';
 import NewGoalForm from './components/NewGoalForm';
-import { GoalsList } from './components/GoalList';
+import { GoalsList } from './components/GoalsList';
 import AffirmationMessage from './components/AffirmationMessage';
 
 function App() {

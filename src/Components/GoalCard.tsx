@@ -12,7 +12,7 @@ const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setG
 
         let id = goal.id
 
-        GoalDataService.remove(id)q
+        GoalDataService.remove(id)
         .then((response: any) => {
             console.log(response)
 
