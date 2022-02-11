@@ -1,19 +1,12 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions, Button } from '@mui/material';
+import { Button, Card, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import GoalDataService from "../services/GoalService";
-//import Button from '@mui/material/Button';
-
-// interface GoalCardProps = {
-//     goal:any, 
-//     setGoalDetail :func
-// };
 
 
-const GoalCard: React.FC<{goal:any, setGoalDetail:Function}> = ({goal, setGoalDetail}) => { // Aisha'd changes
-    
+
+const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setGoalDetail }) => { // Aisha'd changes
+        
     const deleteGoal = () => {
 
         let id = goal.id
@@ -27,48 +20,33 @@ const GoalCard: React.FC<{goal:any, setGoalDetail:Function}> = ({goal, setGoalDe
         });
 
     }   
-
+    
     return (
-        <div>
-        <Card sx={{ maxWidth: 500 }}> /
-            <CardActionArea>
-                <CardContent onClick={() => {setGoalDetail(goal)}}>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {goal.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {goal.description}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-            <CardActions>
-                <Button onClick={deleteGoal} className="btn btn-delete">delete</Button>   
-            </CardActions>
-        </Card>
-        {/* <button onClick={deleteGoal} className="btn btn-delete">delete</button> */}
-        </div>
+        <Row xs={1} md={2} className="g-4">
+            {/* {Array.from({ length: 4 }).map((_, idx) => ( */}
+                <Col>
+                    <Card className="text-center" border="info" style={{ width: '18rem' }}>
+                        <Card.Header> Goal #{goal.id}</Card.Header>
+                        <Card.Body>
+                            <Card.Title as="h5">
+                                {goal.title}
+                            </Card.Title>
+                            <Card.Text>
+                                {goal.description}
+                            </Card.Text>
+                            <Button variant="primary" onClick={() => { setGoalDetail(goal) }}>Card Details</Button>
+                            <Button variant="primary" onClick={deleteGoal}>Delete Goal</Button>
+                        </Card.Body>
+                        <Card.Footer className="text-muted">Created on: {goal.createdAt}</Card.Footer>
+                    </Card>
+                </Col>
+            {/* ))} */}
+        </Row>
     );
-}; 
+};
 
 
 export default GoalCard;
 
-// Aisha's changes end
 
 
-// export default function GoalCard() {
-//     return (
-//         <Card sx={{ maxWidth: 500 }}>
-//             <CardActionArea>
-//                 <CardContent>
-//                     <Typography gutterBottom variant="h5" component="div">
-//                         Goal Title
-//                     </Typography>
-//                     <Typography variant="body2" color="text.secondary">
-//                         Goal Description
-//                     </Typography>
-//                 </CardContent>
-//             </CardActionArea>
-//         </Card>
-//     );
-// }; 

@@ -25,7 +25,6 @@ const NewGoalForm = () => {
 
     const goBackHome = () => {
         navigate('/');
-
     }
 
     const saveGoal = () => {
