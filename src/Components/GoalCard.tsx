@@ -14,9 +14,11 @@ const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setG
         GoalDataService.remove(id)
         .then((response: any) => {
             console.log(response)
+
+            
         })
         .catch((e: Error) => {
-            console.log(e.message);
+            console.log(e.message)
         });
 
     }   
