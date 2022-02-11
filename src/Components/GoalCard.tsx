@@ -33,7 +33,7 @@ const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setG
                     <Card.Body>
                         <Card.Title as="h5">
                             {goal.title}
-                        </Card.Title>``
+                        </Card.Title>
                         <Card.Text>
                             {goal.description}
                         </Card.Text>
@@ -46,7 +46,7 @@ const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setG
                     <Card.Footer className="text-muted">Created on: {goal.createdAt}</Card.Footer>
                 </Card>
             </Col>
-                <Col>
+                {/* <Col>
                     <Card className="text-center" border="info" style={{ width: '18rem' }}>
                         <Card.Header> Goal #{goal.id}</Card.Header>
                         <Card.Body>
@@ -61,8 +61,7 @@ const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setG
                         </Card.Body>
                         <Card.Footer className="text-muted">Created on: {goal.createdAt}</Card.Footer>
                     </Card>
-                </Col>
-            {/* ))} */}
+                </Col>  */}
         </Row>
     );
 };

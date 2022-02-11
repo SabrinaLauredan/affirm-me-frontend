@@ -23,11 +23,11 @@ function App() {
                 about
               </Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to="/goalform" className="nav-link">
                 add a goal
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link to="/goals" className="nav-link">
                 my goals
