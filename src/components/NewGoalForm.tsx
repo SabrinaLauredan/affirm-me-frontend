@@ -2,10 +2,15 @@ import React, { useState, ChangeEvent } from "react";
 import GoalDataService from "../services/GoalService";
 import IGoalData from "../types/Goal";
 import moment from "moment";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 
 const NewGoalForm = () => {
+    let [searchParams, setSearchParams] = useSearchParams(); 
+    let editId = searchParams.get("id");
+    // if editID undefined, making goal, if found editing 
+    console.log(editId)
+    // console.log(useSearchParams())
     const initialGoalState = {
         id: null,
         title: "",
@@ -34,8 +39,10 @@ const NewGoalForm = () => {
             createdAt: submitDate
         };
 
-        GoalDataService.create(data)
-            .then((response: any) => {
+        const req = GoalDataService.update(editId,data)
+        // conditional
+        // also get current goals in edit form with state or get 
+            req.then((response: any) => {
                 setGoal({
                     id: response.data.id,
                     title: response.data.title,

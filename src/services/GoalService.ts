@@ -14,7 +14,7 @@ const create = (data: IGoalData) => {
 };
 
 const update = (id: any, data: IGoalData) => {
-    return http.put<any>(`/goals/${id}`, data);
+    return http.patch<any>(`/goals/${id}`, data);
 };
 
 const remove = (id: any) => {

@@ -28,6 +28,11 @@ function App() {
                 add a goal
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/goals" className="nav-link">
+                my goals
+              </Link>
+            </li>
           </div>
         </nav>
         <Routes>
@@ -36,6 +41,7 @@ function App() {
           <Route path="/affirmation" element={<AffirmationMessage />} />
           <Route path="/goals" element={<GoalsList />} />
           <Route path="/goalform" element={<NewGoalForm/>}/>
+          {/* get location  */}
           <Route path="/*" element={<ErrorPage />} />
         </Routes>  
       </Router>
