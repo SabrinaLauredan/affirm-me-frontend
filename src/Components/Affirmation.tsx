@@ -49,12 +49,6 @@ const Affirmation = (props: IProps) => {
     // const message = type ? yesMessages[counter] : noMessages[counter];
     
     console.log(type)
-    // console.log(message);
-
-    // useEffect(() => {
-    //     incrementCounter();
-    // }, [type]);
-    
     console.log(counter);
     
 
