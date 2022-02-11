@@ -27,7 +27,7 @@ const Affirmation = (props: IProps) => {
     ];
 
     const incrementCounter = () => {
-        if (counter == 3) {
+        if (counter === 3) {
             setCounter(0)
         } else {
             setCounter(counter + 1)
@@ -36,7 +36,7 @@ const Affirmation = (props: IProps) => {
 
     // add a conditional that checks if prop.response == 'yes' and if it is sets Type to True 
     useEffect(() => {
-        if (props.response == 'yes') {
+        if (props.response === 'yes') {
             setType(true);
             incrementCounter();
         } else {
