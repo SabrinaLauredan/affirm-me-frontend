@@ -1,8 +1,9 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent, MouseEvent } from "react";
 import GoalDataService from "../services/GoalService";
 import IGoalData from "../types/Goal";
 import moment from "moment";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { Form, Button, FormControlProps } from "react-bootstrap"; 
 
 
 const NewGoalForm = () => {
@@ -24,7 +25,7 @@ const NewGoalForm = () => {
     const [goal, setGoal] = useState<IGoalData>(initialGoalState);
     // const [submitted, setSubmitted] = useState<boolean>(false);
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setGoal({...goal, [name]: value });
     };
@@ -33,13 +34,13 @@ const NewGoalForm = () => {
         navigate('/');
     }
 
-    const saveGoal = () => {
+    const saveGoal = (e: MouseEvent) => {
+        e.preventDefault();
         let data = {
             title: goal.title,
             description: goal.description,
             createdAt: submitDate
         };
-
         // const req = GoalDataService.update(editId,data)
             // req.then((response: any) => {
         
@@ -62,173 +63,35 @@ const NewGoalForm = () => {
             });
     };
 
-
     return (
-        <div className="submit-form">
-            <div>
-                <h4>ADD A GOAL</h4>
-                <div className="form-group">
-                    <label htmlFor="title">Title</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="title"
-                        required
-                        value={goal.title}
-                        onChange={handleInputChange}
+        <div>
+            <Form>
+                <Form.Group className="form-group" controlId="goalTitleInput" >
+                    <Form.Label>Title</Form.Label>
+                    <Form.Control 
+                        type="text" 
+                        placeholder="title"
+                        // required 
+                        value={goal.title} 
+                        onChange={handleInputChange} 
                         name="title"
                     />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="description">Description</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        id="description"
-                        // required
+                </Form.Group>
+                <Form.Group className="form-group" controlId="goalDescriptionInput">
+                    <Form.Label>Description</Form.Label>
+                    <Form.Control 
+                        as="textarea"
+                        rows={3}
                         value={goal.description}
                         onChange={handleInputChange}
-                        name="description"
+                        name="description" 
                     />
-                </div>
-                <button onClick={saveGoal} className="btn btn-success">
-                    Submit
-                </button>
-            </div>
+                </Form.Group>
+                <Button type="submit" onClick={saveGoal}>Submit Goal</Button>
+            </Form>
         </div>
     );
 };
 
 export default NewGoalForm;
 
-//ORIGINAL WORKING CODE W SUBMISSION STATE
-
-// const newGoal = () => {
-//     setGoal(initialGoalState);
-//     setSubmitted(false);
-// };
-
-// return (
-//     <div className="submit-form">
-//         {submitted ? (
-//             <div>
-//                 <h4>successful submission</h4>
-//                 <button className="btn btn-success" onClick={newGoal}>
-//                     add another goal
-//                 </button>
-//             </div> 
-//         ) : (
-//             <div>
-//                 <h4>ADD A GOAL</h4>
-//                 <div className="form-group">
-//                     <label htmlFor="title">Title</label>
-//                     <input
-//                         type="text"
-//                         className="form-control"
-//                         id="title"
-//                         required
-//                         value={goal.title}
-//                         onChange={handleInputChange}
-//                         name="title"
-//                     />
-//                 </div>
-//                 <div className="form-group">
-//                     <label htmlFor="description">Description</label>
-//                     <input
-//                         type="text"
-//                         className="form-control"
-//                         id="description"
-//                         // required
-//                         value={goal.description}
-//                         onChange={handleInputChange}
-//                         name="description"
-//                     />
-//                 </div>
-//                 <button onClick={saveGoal} className="btn btn-success">
-//                     Submit
-//                 </button>
-//             </div>
-//         )}
-//     </div>
-// );
-
-
-
-
-
-
-// interface IProps {
-//     addGoal: (arg: {title: string; description?: string | undefined; createdAt?: string | undefined}) => void
-// }
-
-// const NewGoalForm = (addGoal: IProps["addGoal"]) => {
-//     const submitDate = moment().format("DD-MM-YYYY hh:mm:ss")
-
-//     const [requestBody, setRequestBody] = useState({
-//         title: "",
-//         description: "",
-//         createdAt: submitDate
-//     })
-//     // https://www.bezkoder.com/react-typescript-api-call/
-//     const [submitted, setSubmitted] = useState<boolean>(false);
-
-//     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-//         setRequestBody({
-//             ...requestBody,
-//             [`${e.target.name}`]: `${e.target.value}`,
-//         })
-//     }
-
-//     const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
-//         //prevents page from reloading
-//         e.preventDefault();
-
-//         if(!requestBody.title){
-//             return
-//         }
-//         //do something
-//         addGoal(requestBody);
-//         // setRequestBody({
-//         //     ...requestBody,
-//         //     createdAt: submitDate
-//         // });
-//     }
-//     // const handleClick = () => {
-//     //     if(
-//     //         !requestBody.title
-//     //     ) {
-//     //         return
-//     //     }
-//     //     // setInput({
-//     //     //     ...input,
-//     //     //     createdAt: submitDate
-//     //     // })
-//     //     addGoal(requestBody);
-//     // }
-
-//     return (
-//         <form onSubmit={submitForm}>
-//             <input
-//                 type="text"
-//                 placeholder="Title"
-//                 value={requestBody.title}
-//                 onChange={handleChange}
-//                 name="title"
-//             />
-//             <input
-//                 type="text"
-//                 placeholder="Description"
-//                 value={requestBody.description}
-//                 onChange={handleChange}
-//                 name="description"
-//             />
-//             <button
-//                 type="submit"
-//             >
-//                 submit
-//             </button>
-//         </form>
-//     )
-// }
-
-// export default NewGoalForm;
