@@ -1,6 +1,9 @@
 {
   "name": "affirm_me_frontend",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.x"
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -75,4 +78,6 @@
     "@types/react-calendar": "^3.4.5",
     "webpack": "^5.68.0"
   }
+  
 }
+
