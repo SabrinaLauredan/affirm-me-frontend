@@ -5,7 +5,7 @@ import GoalCardView from "./GoalCardView"
 import IGoalData from "../types/Goal";
 
 
-export function GoalsList() {
+export default function GoalsList() {
     const [listedGoals, setGoalList] = useState([]);
     const [goalDetail, setGoalDetail] = useState();
     useEffect(() => {
