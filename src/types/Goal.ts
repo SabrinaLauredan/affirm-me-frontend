@@ -1,6 +1,6 @@
 export default interface IGoalData {
-    id?: any | null,
+    id?: string | any | null,
     title: string,
     description?: string,
-    createdAt?: string,
+    createdAt?: string | null| boolean,
 }

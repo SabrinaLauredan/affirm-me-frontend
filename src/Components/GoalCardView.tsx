@@ -17,9 +17,9 @@ const GoalCardView: React.FC<{goalDetail:any, setGoalDetail:Function}> = ({goalD
     return  (
         <div className="goal-view">
             <main> 
-                <h2>Goal View</h2>
+                <h2>Goal View (GoalCardView)</h2>
                 <button onClick = {() => setGoalDetail(null)}>
-                    back to home
+                    back to home (Back to Goal List aka "/")
                 </button>
                 {/* <CheckIn trigger={timedPopup} setTrigger={setTimedPopup}>
                     <h1>Popup Test</h1>
