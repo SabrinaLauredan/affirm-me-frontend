@@ -16,7 +16,7 @@ const NewGoalForm = () => {
         id: null,
         title: "",
         description: "",
-        createdAt: ""
+        createdAt: undefined
     };
 
     const submitDate = moment().format("DD-MM-YYYY hh:mm:ss")
@@ -34,33 +34,35 @@ const NewGoalForm = () => {
         navigate('/');
     }
 
-    const saveGoal = (e: MouseEvent) => {
-        e.preventDefault();
+    const saveGoal = (event: MouseEvent) => { 
+        event.preventDefault();
         let data = {
             title: goal.title,
             description: goal.description,
-            createdAt: submitDate
+            createdAt: undefined
         };
+
+        console.log(data);
         // const req = GoalDataService.update(editId,data)
             // req.then((response: any) => {
         
         // conditional
         // also get current goals in edit form with state or get 
-            GoalDataService.create(data)
-                .then((response: any) => {
-                    setGoal({
-                        id: response.data.id,
-                        title: response.data.title,
-                        description: response.data.description,
-                        createdAt: response.data.createdAt
-                    });
-                // setSubmitted(true);
-                console.log(response.data);
-                goBackHome();
-            })
-            .catch((e: Error) => {
-                console.log(e);
-            });
+        GoalDataService.create(data)
+            .then((response: any) => {
+                setGoal({
+                    id: response.data.id,
+                    title: response.data.title,
+                    description: response.data.description,
+                    createdAt: response.data.createdAt
+                });
+            // setSubmitted(true);
+            console.log(response.data);
+            goBackHome();
+        })
+        .catch((e: Error) => {
+            console.log(e);
+        });
     };
 
     return (
@@ -87,7 +89,7 @@ const NewGoalForm = () => {
                         name="description" 
                     />
                 </Form.Group>
-                <Button type="submit" onClick={saveGoal}>Submit Goal</Button>
+                <Button variant="outline-primary" type="submit" onClick={saveGoal}>Submit Goal</Button>
             </Form>
         </div>
     );
