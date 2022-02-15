@@ -1,7 +1,7 @@
-import GoalCard from "./GoalCard";
+import GoalCard from "../Components/GoalCard"; 
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import GoalCardView from "./GoalCardView"
+import GoalCardView from "./GoalCardView";
 import IGoalData from "../types/Goal";
 
 

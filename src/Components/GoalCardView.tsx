@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar'; 
 import 'react-calendar/dist/Calendar.css';
-import CheckIn from './CheckIn';
+import CheckIn from './CheckIn'
 // import { getGoals} from "./api";
 
 const GoalCardView: React.FC<{goalDetail:any, setGoalDetail:Function}> = ({goalDetail, setGoalDetail}) => {

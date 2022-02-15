@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import GoalsList from "../components/GoalsList";
+import GoalsList from "../Components/GoalsList";
 
 const Home = () => {
     const navigate = useNavigate()

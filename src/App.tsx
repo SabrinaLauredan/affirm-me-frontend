@@ -4,9 +4,9 @@ import {BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Home from './Pages/Home';
 import About from './Pages/About';
 import ErrorPage from './Pages/ErrorPage';
-import NewGoalForm from './components/NewGoalForm';
-import GoalsList from './components/GoalsList';
-import AffirmationMessage from './components/AffirmationMessage';
+import NewGoalForm from './Components/NewGoalForm';
+import GoalsList from './Components/GoalsList';
+import AffirmationMessage from './Components/AffirmationMessage';
 
 function App() {
 
