@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/affirm-me-frontend/static/css/main.1535b2f2.css",
+    "main.js": "/affirm-me-frontend/static/js/main.241d9e9d.js",
+    "index.html": "/affirm-me-frontend/index.html",
+    "main.1535b2f2.css.map": "/affirm-me-frontend/static/css/main.1535b2f2.css.map",
+    "main.241d9e9d.js.map": "/affirm-me-frontend/static/js/main.241d9e9d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1535b2f2.css",
+    "static/js/main.241d9e9d.js"
+  ]
+}
