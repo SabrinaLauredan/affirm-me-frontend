@@ -1,8 +1,8 @@
 import React, { useState, MouseEvent } from "react";
 import GoalDataService from "../services/GoalService";
 import IGoalData from "../types/Goal";
-import moment from "moment";
-import { useNavigate, useSearchParams } from "react-router-dom";
+// import moment from "moment";
+import { useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap"; 
 
 
@@ -19,7 +19,7 @@ const NewGoalForm = () => {
         createdAt: undefined
     };
 
-    const submitDate = moment().format("DD-MM-YYYY hh:mm:ss")
+    // const submitDate = moment().format("DD-MM-YYYY hh:mm:ss")
     const navigate = useNavigate();
 
     const [goal, setGoal] = useState<IGoalData>(initialGoalState);

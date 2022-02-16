@@ -15,8 +15,7 @@ const Home = () => {
             >
                 +
             </Button>
-            {/* <h1> affirm.me (THIS IS THE HOME PAGE)</h1> */}
-            < GoalsList />
+            <GoalsList />
         </div>
     )
 }
