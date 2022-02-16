@@ -1,5 +1,5 @@
 import React from "react";
-import Affirmation from "./Affirmation";
+import Affirmation from "../Components/Affirmation";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
