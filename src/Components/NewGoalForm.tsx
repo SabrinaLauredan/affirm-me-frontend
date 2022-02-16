@@ -96,4 +96,3 @@ const NewGoalForm = () => {
 };
 
 export default NewGoalForm;
-
