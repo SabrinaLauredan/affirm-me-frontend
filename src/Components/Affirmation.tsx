@@ -1,15 +1,13 @@
 import React from "react";
 
-//prop interface:
-    //prop.response =  string ('yes' or 'no')
-
 interface IProps {
-    response: any;
+    response: string;
 }
 const Affirmation = (props: IProps) => {
 
     // set state to track 'affirmation type' ('yes' or 'no')
     const type = props.response
+
 
     //define function to pick a random num between 0 - 2
     const getRandomIndex = (num: number) => {
