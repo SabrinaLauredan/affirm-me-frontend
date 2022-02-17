@@ -23,7 +23,6 @@ const NewGoalForm = () => {
     const navigate = useNavigate();
 
     const [goal, setGoal] = useState<IGoalData>(initialGoalState);
-    // const [submitted, setSubmitted] = useState<boolean>(false);
 
     const handleInputChange = (e:  React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
