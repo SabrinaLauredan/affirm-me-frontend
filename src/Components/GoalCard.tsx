@@ -46,22 +46,6 @@ const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setG
                     <Card.Footer className="text-muted">Created on: {goal.createdAt}</Card.Footer>
                 </Card>
             </Col>
-                {/* <Col>
-                    <Card className="text-center" border="info" style={{ width: '18rem' }}>
-                        <Card.Header> Goal #{goal.id}</Card.Header>
-                        <Card.Body>
-                            <Card.Title as="h5">
-                                {goal.title}
-                            </Card.Title>
-                            <Card.Text>
-                                {goal.description}
-                            </Card.Text>
-                            <Button variant="primary" onClick={() => { setGoalDetail(goal) }}>Card Details</Button>
-                            <Button variant="primary" onClick={deleteGoal}>Delete Goal</Button>
-                        </Card.Body>
-                        <Card.Footer className="text-muted">Created on: {goal.createdAt}</Card.Footer>
-                    </Card>
-                </Col>  */}
         </Row>
     );
 };

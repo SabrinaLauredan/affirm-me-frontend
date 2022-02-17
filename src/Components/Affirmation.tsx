@@ -4,7 +4,7 @@ import React from "react";
     //prop.response =  string ('yes' or 'no')
 
 interface IProps {
-    response: any;
+    response: string;
 }
 const Affirmation = (props: IProps) => {
 
