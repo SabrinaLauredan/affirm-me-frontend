@@ -27,7 +27,7 @@ export default function GoalsList() {
                 <GoalCardView goalDetail={goalDetail} setGoalDetail={setGoalDetail} ></GoalCardView>
                 :
                 <div className='d-grid gap-3'>
-                    <h1>My Goals</h1>
+                    {/* <h1>My Goals</h1> */}
                     {listedGoals.map((goal, index) => {
                         return <div className='p-2'><GoalCard goal={goal} key={index} setGoalDetail={setGoalDetail} ></GoalCard></div>
                     })}
