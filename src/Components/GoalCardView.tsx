@@ -28,15 +28,15 @@ const GoalCardView: React.FC<{goalDetail:any, setGoalDetail:Function}> = ({goalD
                 </div>
                 <div className="p-2">
                     <div>
-                        <div className="goal-view-title">
+                        <div className="text-center">
                             <h3>{goalDetail.title}</h3>
                         </div>
-                        <div className="goal-view-description">
-                            <h4>{goalDetail.description}</h4>
+                        <div className="text-center">
+                            <p>{goalDetail.description}</p>
                         </div>
                     </div>
                 </div>
-                <div className="p-2">
+                <div className="p-2 mx-auto">
                 {/* <h1>CALENDAR DISPLAY</h1> */}
                 <Calendar onChange={onChange} value ={value} />
                 </div>

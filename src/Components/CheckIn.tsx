@@ -18,9 +18,9 @@ const CheckIn = (props: IProps) => {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <p>
+                <h5 className="text-center">
                     Did you meet your goal today?
-                </p>
+                </h5>
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="outline-success">
