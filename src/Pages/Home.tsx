@@ -13,18 +13,24 @@ const Home = () => {
                 {/* <Col xs={{ order: 1 }}> */}
                     <NavBar /> 
             </Row>
-            <Row className="d-flex">
-                <Col xs>
-                    <GoalsList />
+            <Row>
+                <Col md={{ offset: 3 }}> 
+                    <div className='d-flex justify-content-center'>
+                        <Button size="lg"
+                            onClick={() => {
+                                navigate('/goalform');
+                            }}
+                        >
+                            +
+                        </Button>
+                    </div>
                 </Col>
-                <Col xs> 
-                    <Button
-                        onClick={() => {
-                            navigate('/goalform');
-                        }}
-                    >
-                        +
-                    </Button>
+            </Row>
+            <Row>
+                <Col>
+                    <div className="d-flex justify-content-center">
+                        <GoalsList />
+                    </div>
                 </Col>
                 {/* <Col xs={{ order: 12 }}>  */}
             </Row>
