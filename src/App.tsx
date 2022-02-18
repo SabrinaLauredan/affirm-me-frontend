@@ -13,7 +13,7 @@ function App() {
   return (
     <div>
       <Router>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
+        {/* <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to="/" className="navbar-brand">
             affirm.me
           </Link>
@@ -23,18 +23,13 @@ function App() {
                 about
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link to="/goalform" className="nav-link">
-                add a goal
-              </Link>
-            </li> */}
             <li className="nav-item">
               <Link to="/goals" className="nav-link">
                 my goals
               </Link>
             </li>
           </div>
-        </nav>
+        </nav> */}
         <Routes>
           <Route path="/" element={<Home />} /> 
           <Route path="/about" element={<About />} />
