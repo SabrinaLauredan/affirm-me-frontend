@@ -1,10 +1,10 @@
 import React from "react";
 import Affirmation from "./Affirmation";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { CloseButton, Figure} from "react-bootstrap";
 
 //prop interface 
-    //response to check-in data = string
+//response to check-in data = string
 
 const AffirmationMessage = () => {
     const location = useLocation();
@@ -19,10 +19,21 @@ const AffirmationMessage = () => {
 
     return (
         <div>
-            <Button variant="primary" onClick={goBackHome}>back</Button>
-            <div className="animation">{animation}</div>
-            <Affirmation response={answer} />
-            {/* <h3>message test</h3> */}
+            <CloseButton aria-label="Hide" onClick={goBackHome} />
+            <div className="animation">{animation}
+            <Figure>
+                <Figure.Image
+                    width={171}
+                    height={180}
+                    alt="171x180"
+                    src="holder.js/171x180"
+                />
+                <Figure.Caption>
+                    <Affirmation response={answer} />
+                    {/* <h3>message test</h3> */}
+                </Figure.Caption>
+            </Figure>
+            </div>
         </div>
     );
 }
