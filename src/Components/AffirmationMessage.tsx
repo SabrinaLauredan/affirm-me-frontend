@@ -4,9 +4,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Stack, CloseButton, Figure} from "react-bootstrap";
 import gif from '../assets/affirmation.gif';
 
-//prop interface 
-//response to check-in data = string
-
 const AffirmationMessage = () => {
     const location = useLocation();
     const answer = location.state as any;
@@ -15,8 +12,6 @@ const AffirmationMessage = () => {
     const goBackHome = () => {
         navigate('/');
     }
-
-    const animation = ""
 
     return (
         <div className="d-flex justify-content-center">
