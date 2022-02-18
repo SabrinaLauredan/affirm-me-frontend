@@ -9,7 +9,7 @@ interface IProps {
 const Affirmation = (props: IProps) => {
 
     // set state to track 'affirmation type' ('yes' or 'no')
-    const type = props.response
+    // const type = props.response
 
     //define function to pick a random num between 0 - 2
     const getRandomIndex = (num: number) => {
