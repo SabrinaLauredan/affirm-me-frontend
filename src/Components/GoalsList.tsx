@@ -29,7 +29,11 @@ export default function GoalsList() {
             <GoalCardView goalDetail={goalDetail} setGoalDetail={setGoalDetail} ></GoalCardView>
             :
             <div>
+<<<<<<< HEAD
             {/* <h1>My Goals</h1> */}
+=======
+        
+>>>>>>> a16f8ebbe2443704339967110372fa38e019962c
             {listedGoals.map((goal, index) => {
                     return <GoalCard goal={goal} key={index} setGoalDetail={setGoalDetail} ></GoalCard>
                 })}

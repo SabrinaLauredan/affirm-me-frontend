@@ -1,18 +1,20 @@
 // import './App.css';
 // import "bootstrap/dist/css/bootstrap.min.css";
-import {BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Home from './Pages/Home';
 import About from './Pages/About';
 import ErrorPage from './Pages/ErrorPage';
 import NewGoalForm from './Components/NewGoalForm';
 import GoalsList from './Components/GoalsList';
 import AffirmationMessage from './Components/AffirmationMessage';
+import NavBar from './Components/navBar';
 
 function App() {
 
   return (
     <div>
       <Router>
+<<<<<<< HEAD
         {/* <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to="/" className="navbar-brand">
             affirm.me
@@ -30,17 +32,20 @@ function App() {
             </li>
           </div>
         </nav> */}
+=======
+>>>>>>> a16f8ebbe2443704339967110372fa38e019962c
         <Routes>
-          <Route path="/" element={<Home />} /> 
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/affirmation" element={<AffirmationMessage />} />
           <Route path="/goals" element={<GoalsList />} />
-          <Route path="/goalform" element={<NewGoalForm/>}/>
-          {/* get location  */}
+          <Route path="/goalform" element={<NewGoalForm />} />
+          <Route path="/navbar" element={<NavBar />} />
           <Route path="/*" element={<ErrorPage />} />
-        </Routes>  
+        </Routes>
       </Router>
     </div>
-  )};
+  )
+};
 
 export default App;
