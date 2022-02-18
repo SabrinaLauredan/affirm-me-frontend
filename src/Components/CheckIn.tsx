@@ -8,32 +8,59 @@ interface IProps {
 }
 
 const CheckIn = (props: IProps) => {
-    return (props.trigger) ? (
-        <Modal.Dialog
-                size="xl"
-                aria-labelledby="contained-modal-title-vcenter"
-                centered
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title>
-                        Checking in!
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <p>
-                        Did you meet your goal today?
-                    </p>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary">
-                        <Link to="/affirmation" className="yes" state={'yes'} >Yes</Link>
-                    </Button>
-                    <Button variant="primary">
-                        <Link to="/affirmation" className="no" state={'no'}>No</Link>
-                    </Button>
-                </Modal.Footer>
-        </Modal.Dialog>
-    ) : <div></div>;
+
+    const handleClose = () => props.setTrigger(false);
+    // const handleShow = props.trigger;
+
+    return (
+        <Modal show={props.trigger} onHide={handleClose}>
+            <Modal.Header closeButton>
+                <Modal.Title>
+                    Checking in!
+                </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+                <p>
+                    Did you meet your goal today?
+                </p>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant="primary">
+                    <Link to="/affirmation" className="yes" state={'yes'} >Yes</Link>
+                </Button>
+                <Button variant="primary">
+                    <Link to="/affirmation" className="no" state={'no'}>No</Link>
+                </Button>
+            </Modal.Footer>
+        </Modal>
+    );
+
+    // return (props.trigger) ? (
+    //     <Modal.Dialog
+    //             size="xl"
+    //             aria-labelledby="contained-modal-title-vcenter"
+    //             centered
+    //         >
+    //             <Modal.Header closeButton>
+    //                 <Modal.Title>
+    //                     Checking in!
+    //                 </Modal.Title>
+    //             </Modal.Header>
+    //             <Modal.Body>
+    //                 <p>
+    //                     Did you meet your goal today?
+    //                 </p>
+    //             </Modal.Body>
+    //             <Modal.Footer>
+    //                 <Button variant="primary">
+    //                     <Link to="/affirmation" className="yes" state={'yes'} >Yes</Link>
+    //                 </Button>
+    //                 <Button variant="primary">
+    //                     <Link to="/affirmation" className="no" state={'no'}>No</Link>
+    //                 </Button>
+    //             </Modal.Footer>
+    //     </Modal.Dialog>
+    // ) : <div></div>;
 };
 
 export default CheckIn;

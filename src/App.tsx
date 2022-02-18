@@ -14,7 +14,6 @@ function App() {
   return (
     <div>
       <Router>
-<<<<<<< HEAD
         {/* <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to="/" className="navbar-brand">
             affirm.me
@@ -32,8 +31,6 @@ function App() {
             </li>
           </div>
         </nav> */}
-=======
->>>>>>> a16f8ebbe2443704339967110372fa38e019962c
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

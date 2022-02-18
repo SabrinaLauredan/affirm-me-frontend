@@ -17,25 +17,25 @@ const GoalCardView: React.FC<{goalDetail:any, setGoalDetail:Function}> = ({goalD
     }, []);
 
     return  (
-        <div className="goal-view">
+        <div className="d-flex justify-content-center align-content-center">
             <main> 
                 <h2>Goal View</h2>
-                <button onClick = {() => setGoalDetail(null)}>
+                {/* <Button onClick = {() => setGoalDetail(null)}>
                     back to home
-                </button>
-                <Button onClick = {() => setGoalDetail(null)}></Button>
+                </Button> */}
+                <Button onClick = {() => setGoalDetail(null)}>←</Button>
                 <div className="goal-view-blocks">
                     <div>
                         <div className="goal-view-title">
                             <h3>{goalDetail.title}</h3>
                         </div>
                         <div className="goal-view-description">
-                            <h3>{goalDetail.description}</h3>
+                            <h4>{goalDetail.description}</h4>
                         </div>
                     </div>
                 </div>
                 <div>
-                <h1>CALENDAR DISPLAY</h1>
+                {/* <h1>CALENDAR DISPLAY</h1> */}
                 <Calendar onChange={onChange} value ={value} />
                 </div>
             </main>
