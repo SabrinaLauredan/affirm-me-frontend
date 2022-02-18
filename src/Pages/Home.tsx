@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import GoalsList from "../Components/GoalsList";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import NavBar from "../Components/navBar";
+// import NavBar from "../Components/navBar";
 import dancing from "../assets/dancing.png";
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
         <Container>
             <Row>
                 {/* <Col xs={{ order: 1 }}> */}
-                    <NavBar /> 
+                    {/* <NavBar />  */}
             </Row>
             <Row>
                 <Col md={{ offset: 3 }}> 
