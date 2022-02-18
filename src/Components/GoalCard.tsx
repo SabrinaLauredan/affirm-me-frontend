@@ -37,9 +37,9 @@ const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setG
                         <Typography gutterBottom variant="h4" component="div">
                             {goal.title}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        {/* <Typography variant="body2" color="text.secondary">
                             {goal.description}
-                        </Typography>
+                        </Typography> */}
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
