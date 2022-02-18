@@ -15,7 +15,7 @@ const Home = () => {
             </Row>
             <Row>
                 <Col md={{ offset: 3 }}> 
-                    <div className='d-flex justify-content-center'>
+                    <div className='p-3 d-flex justify-content-center'>
                         <Button size="lg"
                             onClick={() => {
                                 navigate('/goalform');

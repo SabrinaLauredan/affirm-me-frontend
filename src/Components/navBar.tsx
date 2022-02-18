@@ -1,13 +1,15 @@
 // import IGoalData from "../types/Goal";
 import { Button, Container, Form, FormControl, Nav, Navbar, NavDropdown, Offcanvas } from "react-bootstrap";
-
+import logo from '../assets/logo.png';
 
 export default function NavBar() {
     return (
         <div>
             <Navbar fixed="top" bg="transparent" expand={false}>
                 <Container>
-                    <Navbar.Brand href="#">affirm.me</Navbar.Brand>
+                    <Navbar.Brand href="#">
+                        <img className="w-25" src={logo} alt="logo" />
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="offcanvasNavbar" />
                     <Navbar.Offcanvas
                         id="offcanvasNavbar"
