@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 import Calendar from 'react-calendar'; 
 import 'react-calendar/dist/Calendar.css';
 import CheckIn from './CheckIn'
-import BackspaceSharpIcon from '@mui/icons-material/BackspaceSharp';
 
 // import { getGoals} from "./api";
 
@@ -19,7 +19,11 @@ const GoalCardView: React.FC<{goalDetail:any, setGoalDetail:Function}> = ({goalD
     return  (
         <div className="goal-view">
             <main> 
-                <BackspaceSharpIcon>onClick = {() => setGoalDetail(null)}</BackspaceSharpIcon>
+                <h2>Goal View</h2>
+                <button onClick = {() => setGoalDetail(null)}>
+                    back to home
+                </button>
+                <Button onClick = {() => setGoalDetail(null)}></Button>
                 <div className="goal-view-blocks">
                     <div>
                         <div className="goal-view-title">

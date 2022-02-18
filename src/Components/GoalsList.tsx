@@ -3,13 +3,8 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import GoalCardView from "./GoalCardView";
 import IGoalData from "../types/Goal";
-import { ListGroup } from "react-bootstrap";
 
 
-
-// Home
-// GoalsList
-// Center on page 
 
 
 export default function GoalsList() {
@@ -35,13 +30,9 @@ export default function GoalsList() {
             :
             <div>
             <h1>My Goals</h1>
-        <ListGroup variant="flush">
-            <ListGroup.Item>
             {listedGoals.map((goal, index) => {
                     return <GoalCard goal={goal} key={index} setGoalDetail={setGoalDetail} ></GoalCard>
                 })}
-            </ListGroup.Item>
-        </ListGroup>
                 <div>
                 </div>
             </div>}

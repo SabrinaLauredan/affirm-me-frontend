@@ -1,54 +1,63 @@
 import * as React from 'react';
-import { Button, Card, Row, Col} from 'react-bootstrap';
+// import {Card, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import GoalDataService from "../services/GoalService";
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import { Button, CardActionArea, CardActions } from '@mui/material';
 
 
 
-const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setGoalDetail }) => { // Aisha'd changes
-        
+const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setGoalDetail }) => { 
     const deleteGoal = () => {
 
         let id = goal.id
 
         GoalDataService.remove(id)
-        .then((response: any) => {
-            console.log(response)
+            .then((response: any) => {
+                console.log(response)
 
-            
-        })
-        .catch((e: Error) => {
-            console.log(e.message)
-        });
 
-    }   
-    
+            })
+            .catch((e: Error) => {
+                console.log(e.message)
+            });
+
+    }
+
     return (
-        <Row xs={1} md={2} className="g-4">
-            {/* {Array.from({ length: 4 }).map((_, idx) => ( */}
-            <Col>
-                <Card className="text-center" border="info" style={{ width: '18rem' }}>
-                    <Card.Header> Goal #{goal.id}</Card.Header>
-                    <Card.Body>
-                        <Card.Title as="h5">
+        <div>
+            <Card sx={{ maxWidth: 400 }}>
+                <CardActionArea onClick={() => { setGoalDetail(goal) }}>
+                    <CardContent>
+                        <Typography gutterBottom variant="h4" component="div">
                             {goal.title}
-                        </Card.Title>
-                        <Card.Text>
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
                             {goal.description}
-                        </Card.Text>
-                        <Button variant="primary" onClick={() => { setGoalDetail(goal) }}>Card Details</Button>
-                        <Button variant="primary" onClick={deleteGoal}>Delete Goal</Button>
-                        <button>
-                            <Link to={`/goalform?id=${goal.id}`}  className="nav-link">Edit Goal</Link>
-                        </button>
-                    </Card.Body>
-                    <Card.Footer className="text-muted">Created on: {goal.createdAt}</Card.Footer>
-                </Card>
-            </Col>
-        </Row>
+                        </Typography>
+                    </CardContent>
+                </CardActionArea>
+                <CardActions>
+                    <Button>
+                        <Link to={`/goalform?id=${goal.id}`} className="nav-link">Edit Goal</Link>
+                    </Button>
+                    <Button variant="outlined" startIcon={<DeleteIcon />} onClick={deleteGoal}>
+                        Delete
+                    </Button>
+                    <Button variant="contained" endIcon={<SendIcon />}>
+                        Share
+                    </Button>
+                </CardActions>
+            </Card>
+        </div>
     );
-};
+}
+
 
 
 export default GoalCard;
