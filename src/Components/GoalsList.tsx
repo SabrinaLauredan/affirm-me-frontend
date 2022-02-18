@@ -28,10 +28,10 @@ export default function GoalsList() {
         {goalDetail ?
             <GoalCardView goalDetail={goalDetail} setGoalDetail={setGoalDetail} ></GoalCardView>
             :
-            <div>
+            <div className='d-grid gap-3'>
             {/* <h1>My Goals</h1> */}
             {listedGoals.map((goal, index) => {
-                    return <GoalCard goal={goal} key={index} setGoalDetail={setGoalDetail} ></GoalCard>
+                    return <div className='p-2'><GoalCard goal={goal} key={index} setGoalDetail={setGoalDetail} ></GoalCard></div>
                 })}
                 {/* <div>
                 </div> */}
