@@ -19,7 +19,7 @@ const GoalCardView: React.FC<{goalDetail:any, setGoalDetail:Function}> = ({goalD
     return  (
         <div className="d-flex justify-content-center align-content-center">
             <main> 
-                <h2>Goal View</h2>
+                {/* <h2>Goal View</h2> */}
                 {/* <Button onClick = {() => setGoalDetail(null)}>
                     back to home
                 </Button> */}

@@ -10,21 +10,23 @@ const Home = () => {
     return (
         <Container>
             <Row>
-                <Col xs> 
-                <Button
-                    onClick={() => {
-                        navigate('/goalform');
-                    }}
-                >
-                    +
-                </Button>
-                </Col>
-                <Col xs={{ order: 12 }}> 
+                {/* <Col xs={{ order: 1 }}> */}
+                    <NavBar /> 
+            </Row>
+            <Row className="d-flex">
+                <Col xs>
                     <GoalsList />
                 </Col>
-                <Col xs={{ order: 1 }}>
-                    <NavBar /> 
+                <Col xs> 
+                    <Button
+                        onClick={() => {
+                            navigate('/goalform');
+                        }}
+                    >
+                        +
+                    </Button>
                 </Col>
+                {/* <Col xs={{ order: 12 }}>  */}
             </Row>
         </Container>
     )
