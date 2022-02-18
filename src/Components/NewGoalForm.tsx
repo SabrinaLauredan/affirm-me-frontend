@@ -3,7 +3,7 @@ import GoalDataService from "../services/GoalService";
 import IGoalData from "../types/Goal";
 // import moment from "moment";
 import { useNavigate } from "react-router-dom";
-import { Form, Button } from "react-bootstrap"; 
+import { Container, Row, Col, Form, Button } from "react-bootstrap"; 
 
 
 const NewGoalForm = () => {
@@ -65,33 +65,36 @@ const NewGoalForm = () => {
     };
 
     return (
+    
         <div className="d-flex justify-content-center">
             <Form>
-                <Form.Group className="mb-3" controlId="goalTitleInput" >
-                    <Form.Label>Title</Form.Label>
-                    <Form.Control 
-                        type="text" 
-                        placeholder="enter title"
-                        // required 
-                        value={goal.title} 
-                        onChange={handleInputChange} 
-                        name="title"
-                    />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="goalDescriptionInput">
-                    <Form.Label>Description</Form.Label>
-                    <Form.Control 
-                        as="textarea"
-                        rows={3}
-                        value={goal.description}
-                        onChange={handleInputChange}
-                        name="description" 
-                    />
-                </Form.Group>
-                <Button variant="success" type="submit" onClick={saveGoal}>Submit Goal</Button>
+            <Form.Group className="mb-3" controlId="goalTitleInput" >
+                <Form.Label>Title</Form.Label>
+                <Form.Control 
+                    size="lg"
+                    type="text" 
+                    placeholder="enter title"
+                    // required 
+                    value={goal.title} 
+                    onChange={handleInputChange} 
+                    name="title"
+                />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="goalDescriptionInput">
+                <Form.Label>Description</Form.Label>
+                <Form.Control 
+                    size="lg"
+                    as="textarea"
+                    rows={3}
+                    value={goal.description}
+                    onChange={handleInputChange}
+                    name="description" 
+                />
+            </Form.Group>
+            <Button size="lg" variant="success" type="submit" onClick={saveGoal}>Submit Goal</Button>
             </Form>
         </div> 
-        
+
     );
 };
 
