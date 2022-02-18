@@ -8,6 +8,7 @@ import NewGoalForm from './Components/NewGoalForm';
 import GoalsList from './Components/GoalsList';
 import AffirmationMessage from './Components/AffirmationMessage';
 import NavBar from './Components/navBar';
+import EditGoalForm from './Components/EditGoalForm';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
           <Route path="/affirmation" element={<AffirmationMessage />} />
           <Route path="/goals" element={<GoalsList />} />
           <Route path="/goalform" element={<NewGoalForm />} />
+          <Route path="/editgoalform" element={<EditGoalForm />} />
           <Route path="/navbar" element={<NavBar />} />
           <Route path="/*" element={<ErrorPage />} />
         </Routes>

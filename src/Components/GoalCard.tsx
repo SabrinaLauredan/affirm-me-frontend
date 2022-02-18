@@ -43,7 +43,8 @@ const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setG
                 </CardActionArea>
                 <CardActions>
                     <Button>
-                        <Link to={`/goalform?id=${goal.id}`} className="nav-link">Edit Goal</Link>
+                        {/* <Link to={`/goalform?id=${goal.id}`} className="nav-link">Edit Goal</Link> */}
+                        <Link to={`/editgoalform?id=${goal.id}`} className="nav-link">Edit Goal</Link>
                     </Button>
                     <Button variant="outlined" startIcon={<DeleteIcon />} onClick={deleteGoal}>
                         Delete
