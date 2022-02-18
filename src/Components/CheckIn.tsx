@@ -9,9 +9,13 @@ interface IProps {
 
 const CheckIn = (props: IProps) => {
     return (props.trigger) ? (
-            <Modal.Dialog>
+        <Modal.Dialog
+                size="xl"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
                 <Modal.Header closeButton>
-                    <Modal.Title id="example-custom-modal-styling-title">
+                    <Modal.Title>
                         Checking in!
                     </Modal.Title>
                 </Modal.Header>
@@ -28,7 +32,7 @@ const CheckIn = (props: IProps) => {
                         <Link to="/affirmation" className="no" state={'no'}>No</Link>
                     </Button>
                 </Modal.Footer>
-                </Modal.Dialog>
+        </Modal.Dialog>
     ) : <div></div>;
 };
 
