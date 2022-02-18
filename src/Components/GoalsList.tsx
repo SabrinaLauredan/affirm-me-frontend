@@ -4,12 +4,10 @@ import { useState, useEffect } from 'react';
 import GoalCardView from "./GoalCardView";
 import IGoalData from "../types/Goal";
 
-
-
-
 export default function GoalsList() {
     const [listedGoals, setGoalList] = useState([]);
     const [goalDetail, setGoalDetail] = useState();
+
     useEffect(() => {
         axios.get<IGoalData>('https://affirm-me-backend.herokuapp.com/goals')
             .then((response: any) => {
@@ -24,20 +22,20 @@ export default function GoalsList() {
     console.log(listedGoals);
 
     return (
-    <div>
-        {goalDetail ?
-            <GoalCardView goalDetail={goalDetail} setGoalDetail={setGoalDetail} ></GoalCardView>
-            :
-            <div className='d-grid gap-3'>
-            {/* <h1>My Goals</h1> */}
-            {listedGoals.map((goal, index) => {
-                    return <div className='p-2'><GoalCard goal={goal} key={index} setGoalDetail={setGoalDetail} ></GoalCard></div>
-                })}
-                {/* <div>
+        <div>
+            {goalDetail ?
+                <GoalCardView goalDetail={goalDetail} setGoalDetail={setGoalDetail} ></GoalCardView>
+                :
+                <div className='d-grid gap-3'>
+                    <h1>My Goals</h1>
+                    {listedGoals.map((goal, index) => {
+                        return <div className='p-2'><GoalCard goal={goal} key={index} setGoalDetail={setGoalDetail} ></GoalCard></div>
+                    })}
+                    {/* <div>
                 </div> */}
-            </div>}
-    </div>
-);
+                </div>}
+        </div>
+    );
 }
 
 

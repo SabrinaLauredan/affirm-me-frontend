@@ -35,11 +35,11 @@ export default function NavBar() {
                             <Form className="d-flex">
                                 <FormControl
                                     type="search"
-                                    placeholder="Search"
+                                    placeholder="search"
                                     className="me-2"
                                     aria-label="Search"
                                 />
-                                <Button variant="outline-success">Search</Button>
+                                <Button variant="outline-success">search</Button>
                             </Form>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>
