@@ -19,24 +19,13 @@ const AffirmationMessage = () => {
     const animation = ""
 
     return (
-        <div>
+        <div className="d-flex justify-content-center">
             <CloseButton aria-label="Hide" onClick={goBackHome} />
-            <div className="animation">
-                <img width={250} height={200} src={gif} alt="affirmationanimation" />
-                <h3 className="message">
+            <div className="affirmation">
+                <img className="d-block mx-auto img-fluid w-25" src={gif} alt="affirmationanimation" />
+                <h3 className="text-center">
                     <Affirmation response={answer} />
                 </h3>
-            {/* <Figure>
-                <Figure.Image
-                    width={171}
-                    height={180}
-                    alt="affirmation gif"
-                    src=""
-                />
-                <Figure.Caption>
-                    <Affirmation response={answer} />
-                </Figure.Caption>
-            </Figure> */}
             </div> 
         </div>
     );
