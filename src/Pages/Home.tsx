@@ -16,7 +16,7 @@ const Home = () => {
                         onClick={() => {
                             navigate('/goalform');
                         }}
-                    >Click to add a goal</Button>
+                    >+ goal</Button>
                 </Col>
             </Row>
             <Row className="justify-content-md-center">

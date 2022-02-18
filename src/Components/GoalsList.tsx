@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import GoalCardView from "./GoalCardView";
 import IGoalData from "../types/Goal";
-import { Col, ListGroup, Row, Tab } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
 
 
 
