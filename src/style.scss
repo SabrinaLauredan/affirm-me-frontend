@@ -3,12 +3,13 @@
 /*********************************************/
 
 $body-bg: #FAFCFE;
-$body-color: #3B79F6;
+$body-color: #0577FE;
 $font-family-sans-serif: "Poppins",
 sans-serif;
-$primary: #D3A0E5;
-$secondary: #EB5A17;
+$primary: #FEB5D2;
+$secondary: #FECFB5;
 $warning: #EDE281;
+$success: #B9F6B0;
 
 
 
@@ -23,4 +24,8 @@ body { padding-top: 70px; }
 
 .MuiCard-root:hover {
     background-color: $secondary !important;
+}
+
+.check-in-btn {
+    text-decoration: none;
 }

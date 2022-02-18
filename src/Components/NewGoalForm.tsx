@@ -88,7 +88,7 @@ const NewGoalForm = () => {
                         name="description" 
                     />
                 </Form.Group>
-                <Button variant="outline-primary" type="submit" onClick={saveGoal}>Submit Goal</Button>
+                <Button variant="success" type="submit" onClick={saveGoal}>Submit Goal</Button>
             </Form>
         </div> 
         

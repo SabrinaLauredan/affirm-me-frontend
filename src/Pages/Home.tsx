@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import GoalsList from "../Components/GoalsList";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import NavBar from "../Components/navBar";
+import dancing from "../assets/dancing.png";
 
 const Home = () => {
     const navigate = useNavigate()
@@ -34,6 +35,9 @@ const Home = () => {
                 </Col>
                 {/* <Col xs={{ order: 12 }}>  */}
             </Row>
+            {/* <Row>
+                <img src={dancing} alt="dancing drawing" className="w-25 pb-2" />
+            </Row>  */}
         </Container>
     )
 };

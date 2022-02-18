@@ -23,10 +23,10 @@ const CheckIn = (props: IProps) => {
                 </h5>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="outline-success">
+                <Button className="check-in-btn" variant="outline-success">
                     <Link to="/affirmation" className="yes" state={'yes'} >Yes</Link>
                 </Button>
-                <Button variant="outline-warning">
+                <Button className="check-in-btn" variant="outline-warning">
                     <Link to="/affirmation" className="no" state={'no'}>No</Link>
                 </Button>
             </Modal.Footer>
