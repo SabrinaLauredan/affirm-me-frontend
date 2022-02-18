@@ -8,7 +8,10 @@ export default function NavBar() {
             <Navbar fixed="top" bg="transparent" expand={false}>
                 <Container>
                     <Navbar.Brand href="#">
-                        <img className="w-25" src={logo} alt="logo" />
+                        <Nav.Link href="/">
+                            <img className="w-25" src={logo} alt="logo" />
+                            </Nav.Link>
+                        {/* <img className="w-25" src={logo} alt="logo" /> */}
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="offcanvasNavbar" />
                     <Navbar.Offcanvas
