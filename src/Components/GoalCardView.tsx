@@ -18,13 +18,15 @@ const GoalCardView: React.FC<{goalDetail:any, setGoalDetail:Function}> = ({goalD
 
     return  (
         <div className="d-flex justify-content-center align-content-center">
-            <main> 
+            <div className="d-grid gap-3"> 
                 {/* <h2>Goal View</h2> */}
                 {/* <Button onClick = {() => setGoalDetail(null)}>
                     back to home
                 </Button> */}
+                <div className="p-2">
                 <Button onClick = {() => setGoalDetail(null)}>←</Button>
-                <div className="goal-view-blocks">
+                </div>
+                <div className="p-2">
                     <div>
                         <div className="goal-view-title">
                             <h3>{goalDetail.title}</h3>
@@ -34,11 +36,11 @@ const GoalCardView: React.FC<{goalDetail:any, setGoalDetail:Function}> = ({goalD
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="p-2">
                 {/* <h1>CALENDAR DISPLAY</h1> */}
                 <Calendar onChange={onChange} value ={value} />
                 </div>
-            </main>
+            </div>
             <CheckIn trigger={timedPopup} setTrigger={setTimedPopup} />
         </div>
     )
