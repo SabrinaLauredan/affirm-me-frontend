@@ -11,7 +11,6 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
 
-
 const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setGoalDetail }) => { 
     const deleteGoal = () => {
 
@@ -31,10 +30,10 @@ const GoalCard: React.FC<{ goal: any, setGoalDetail: Function }> = ({ goal, setG
 
     return (
         <div>
-            <Card sx={{ maxWidth: 400 }}>
+            <Card variant="outlined" sx={{  maxWidth: 400 }}>
                 <CardActionArea onClick={() => { setGoalDetail(goal) }}>
                     <CardContent>
-                        <Typography gutterBottom variant="h4" component="div">
+                        <Typography align="center" gutterBottom variant="h4" component="div">
                             {goal.title}
                         </Typography>
                         {/* <Typography variant="body2" color="text.secondary">

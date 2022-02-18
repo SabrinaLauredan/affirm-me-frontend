@@ -65,20 +65,20 @@ const NewGoalForm = () => {
     };
 
     return (
-        <div>
+        <div className="d-flex justify-content-center">
             <Form>
-                <Form.Group className="form-group" controlId="goalTitleInput" >
+                <Form.Group className="mb-3" controlId="goalTitleInput" >
                     <Form.Label>Title</Form.Label>
                     <Form.Control 
                         type="text" 
-                        placeholder="title"
+                        placeholder="enter title"
                         // required 
                         value={goal.title} 
                         onChange={handleInputChange} 
                         name="title"
                     />
                 </Form.Group>
-                <Form.Group className="form-group" controlId="goalDescriptionInput">
+                <Form.Group className="mb-3" controlId="goalDescriptionInput">
                     <Form.Label>Description</Form.Label>
                     <Form.Control 
                         as="textarea"

@@ -20,3 +20,7 @@ $warning: #EDE281;
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 body { padding-top: 70px; }
+
+.MuiCard-root:hover {
+    background-color: $secondary !important;
+}
