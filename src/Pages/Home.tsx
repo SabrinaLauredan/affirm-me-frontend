@@ -1,30 +1,37 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import GoalsList from "../Components/GoalsList";
-import { Container, Button } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 
 const Home = () => {
     const navigate = useNavigate()
 
     return (
-        <div>
-            <Container>
-                <Button
-                    onClick={() => {
-                        navigate('/goalform');
-                    }}
-                >
-                    +
-                </Button>
-                {/* <h1> affirm.me (THIS IS THE HOME PAGE)</h1> */}
-                < GoalsList />
-
-            </Container>
-            
-        </div>
+        <Container>
+            <Row>
+                <Col></Col>
+                <Col></Col>
+                <Col>
+                    <Button
+                        onClick={() => {
+                            navigate('/goalform');
+                        }}
+                    >+</Button>
+                </Col>
+            </Row>
+            <Row className="justify-content-md-center">
+                <Col md= 'auto'>
+                    <GoalsList />
+                </Col>
+            </Row>
+        </Container>
     )
-}
+};
 
 export default Home;
+
+
+
+
 
 
